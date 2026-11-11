@@ -2,10 +2,11 @@
 
 Quietube is a single static page — upload the contents of `web-app/` to any static host. There is **no router**: deep links must use the root path with query params (`/?v=...`), not `/watch?v=...`.
 
-## GitHub Pages
-1. Repo **Settings → Pages**. Source: **GitHub Actions**, or deploy from a branch with the `/web-app` folder copied to `/docs` or root.
-2. Simplest: create a `gh-pages` branch containing only the `web-app/` files.
-3. Your app will be at `https://<user>.github.io/<repo>/`.
+## GitHub Pages (used by this repo)
+This repo includes `.github/workflows/pages.yml`, which publishes the `web-app/` folder on every push to `main`.
+1. Fork the repo, then go to **Settings → Pages** and set **Source: GitHub Actions**.
+2. Push a change (or run the workflow manually from the **Actions** tab).
+3. Your app will be at `https://<user>.github.io/<repo>/`. Set that same URL (including the `/<repo>` path) in the extension's Options page.
 
 ## Netlify / Cloudflare Pages / Vercel
 Set the publish directory to `web-app`, no build command.

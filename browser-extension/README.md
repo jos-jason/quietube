@@ -20,7 +20,7 @@ generated `.pem`-derived key) — useful if your Quietube backend needs a stable
 ## 3. Manual test matrix
 | Scenario | Expected result |
 |---|---|
-| Type `youtube.com/watch?v=dQw4w9WgXcQ&t=42` in address bar | Lands on `https://quietube.pplx.app/?v=dQw4w9WgXcQ&t=42` (Quietube is a static SPA with no server routes, so everything redirects to `/` and Quietube reads state from the query string) |
+| Type `youtube.com/watch?v=dQw4w9WgXcQ&t=42` in address bar | Lands on `https://jos-jason.github.io/quietube/?v=dQw4w9WgXcQ&t=42` (Quietube is a static SPA with no server routes, so everything redirects to `/` and Quietube reads state from the query string) |
 | Click a `youtu.be/<id>?t=30` link from another site | Redirects preserving `t=30` |
 | Type a query in YouTube's own search box while already on the redirected app (open a raw youtube.com tab manually to test) | SPA `pushState` navigation is caught by `content.js` and forced through `location.replace` |
 | Click a `/shorts/<id>` link (with or without a trailing slash) | Redirects to `/?v=<id>` |

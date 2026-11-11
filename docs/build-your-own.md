@@ -38,7 +38,7 @@ Extension (optional)
 - Swap the API call for a proxy server if you want to hide the key (then add auth).
 
 ## Extension tips
-- Set your deployed origin in the Options page (default in code: `https://quietube.pplx.app` — change `DEFAULT_CONFIG.quietubeOrigin` in `background.js` for your fork).
+- Set your deployed origin in the Options page (default in code: `https://jos-jason.github.io/quietube` — change `DEFAULT_CONFIG.quietubeOrigin` in `background.js` for your fork).
 - Redirects map `youtube.com/watch?v=X&t=Y`, `youtu.be/X`, and `/results?search_query=Q` to `<origin>/?v=X&t=Y` / `?search_query=Q`.
 - `rules_static_example.json` shows a simpler static-ruleset alternative.
 

@@ -1,6 +1,6 @@
 const DEFAULT_CONFIG = {
   enabled: true,
-  quietubeOrigin: "https://quietube.pplx.app",
+  quietubeOrigin: "https://jos-jason.github.io/quietube",
   redirectHome: false
 };
 

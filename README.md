@@ -1,5 +1,7 @@
 # Quietube
 
+**Live app:** https://jos-jason.github.io/quietube/
+
 A calm, distraction-free way to watch YouTube. Quietube is a small, fully client-side web app that searches YouTube with **your own API key**, shows only a handful of results (default 5), and plays one video at a time with no autoplay chains, related-video walls, or infinite scroll.
 
 A companion Chrome/Brave extension (Manifest V3) can redirect every YouTube link you open to your Quietube instance automatically.

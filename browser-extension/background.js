@@ -5,7 +5,7 @@
 
 const DEFAULT_CONFIG = {
   enabled: true,
-  quietubeOrigin: "https://quietube.pplx.app",
+  quietubeOrigin: "https://jos-jason.github.io/quietube",
   redirectHome: false // if true, also redirect youtube.com/ (home, channels, trending), not just watch/search
 };
 
@@ -29,6 +29,8 @@ async function getConfig() {
 function buildRules(config) {
   const target = config.quietubeOrigin.replace(/\/$/, "");
   const targetHost = new URL(target).host;
+  // Supports hosting under a sub-path (e.g. GitHub Pages: /quietube/).
+  const targetPath = new URL(target).pathname.replace(/\/?$/, "/");
   const rules = [];
 
   // --- Safety net --------------------------------------------------------
@@ -57,7 +59,7 @@ function buildRules(config) {
   rules.push({
     id: RULE_ID.WATCH,
     priority: 10,
-    action: { type: "redirect", redirect: { transform: { scheme: "https", host: targetHost, path: "/" } } },
+    action: { type: "redirect", redirect: { transform: { scheme: "https", host: targetHost, path: targetPath } } },
     condition: {
       regexFilter: "^https?://(www\\.|m\\.)?youtube\\.com/watch\\?.*$",
       resourceTypes: ["main_frame"]
@@ -68,7 +70,7 @@ function buildRules(config) {
   rules.push({
     id: RULE_ID.SEARCH,
     priority: 10,
-    action: { type: "redirect", redirect: { transform: { scheme: "https", host: targetHost, path: "/" } } },
+    action: { type: "redirect", redirect: { transform: { scheme: "https", host: targetHost, path: targetPath } } },
     condition: {
       regexFilter: "^https?://(www\\.|m\\.)?youtube\\.com/results\\?.*$",
       resourceTypes: ["main_frame"]
@@ -82,7 +84,7 @@ function buildRules(config) {
   rules.push({
     id: RULE_ID.PLAYLIST,
     priority: 10,
-    action: { type: "redirect", redirect: { transform: { scheme: "https", host: targetHost, path: "/" } } },
+    action: { type: "redirect", redirect: { transform: { scheme: "https", host: targetHost, path: targetPath } } },
     condition: {
       regexFilter: "^https?://(www\\.|m\\.)?youtube\\.com/playlist\\?.*$",
       resourceTypes: ["main_frame"]
@@ -144,7 +146,7 @@ function buildRules(config) {
     rules.push({
       id: RULE_ID.HOME,
       priority: 1,
-      action: { type: "redirect", redirect: { transform: { scheme: "https", host: targetHost, path: "/" } } },
+      action: { type: "redirect", redirect: { transform: { scheme: "https", host: targetHost, path: targetPath } } },
       condition: {
         regexFilter: "^https?://(www\\.|m\\.)?youtube\\.com/.*$",
         resourceTypes: ["main_frame"]
